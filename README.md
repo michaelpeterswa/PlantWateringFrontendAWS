@@ -1,7 +1,8 @@
 # PlantWateringFrontendAWS
 This node.js and express project serves a website where a duration of watering can be set.
 > This project uses node.js, express, and AWS-SDK.
-##Installation
+
+## Installation
 ```
 git clone https://github.com/michaelpeterswa/PlantWateringFrontendAWS.git
 ```
