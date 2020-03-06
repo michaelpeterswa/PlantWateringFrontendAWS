@@ -2,10 +2,14 @@ const express = require('express')
 var cors = require('cors')
 var path = require('path')
 var bp = require('body-parser');
+var AWS = require("aws-sdk");
+const fs = require('fs');
 
 const app = express()
 
-var AWS = require("aws-sdk");
+let rawdata = fs.readFileSync('object.json');
+let jsonData = JSON.parse(rawdata);
+console.log(jsonData);
 
 AWS.config.getCredentials(function(err) {
   if (err) console.log(err.stack);
@@ -23,16 +27,19 @@ var bucketName = 'iotwateringproject'
 // Create name for uploaded object key
 var keyName = 'general_key'
 
-function uploadToS3(duration, key) {
+function uploadToS3(WaterDuration, key) {
 
   if(key == "examplekey"){
     // Create params for putObject call
-    var objectParams = {Bucket: bucketName, Key: keyName, Body: duration};
+    jsonData["frontend"]["duration"] = WaterDuration
+    jsonData["frontend"]["willWater"] = "True"
+
+    var objectParams = {Bucket: bucketName, Key: keyName, Body: JSON.stringify(jsonData), ContentType: "application/json"}
     // Create object upload promise
     var uploadPromise = new AWS.S3({apiVersion: '2006-03-01'}).putObject(objectParams).promise();
     uploadPromise.then(
       function(data) {
-        console.log("Successfully uploaded data: " + duration + " to " + bucketName + "/" + keyName);
+        console.log("Successfully uploaded data: " + WaterDuration + " to " + bucketName + "/" + keyName);
 })}};
 
 //port the app is currently serving to
