@@ -1,0 +1,35 @@
+{
+  "name": "plantwateringinterface",
+  "version": "0.0.1",
+  "description": "Express server handling form data to be sent to AWS S3 bucket for parsing on the other side",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "./scripts/start.sh",
+    "build": "./scripts/buildandrun.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelpeterswa/PlantWateringInterface.git"
+  },
+  "keywords": [
+    "REST",
+    "JSON",
+    "Arduino"
+  ],
+  "author": "Michael Peters",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michaelpeterswa/PlantWateringInterface/issues"
+  },
+  "homepage": "https://github.com/michaelpeterswa/PlantWateringInterface#readme",
+  "dependencies": {
+    "aws-sdk": "^2.634.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mocha": "^6.2.0",
+    "nodemon": "^2.0.2",
+    "nyc": "^14.1.1",
+    "supertest": "^4.0.2"
+  }
+}
