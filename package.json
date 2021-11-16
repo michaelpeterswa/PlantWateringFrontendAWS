@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/michaelpeterswa/PlantWateringInterface#readme",
   "dependencies": {
-    "aws-sdk": "^2.634.0",
+    "aws-sdk": "^2.814.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mocha": "^6.2.0",
